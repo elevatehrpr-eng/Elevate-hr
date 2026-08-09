@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevate HR Consulting | Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-950:#12261f;
+    --green-900:#173a30;
+    --green-800:#1c4436;
+    --gold-600:#b8873f;
+    --gold-500:#c9975a;
+    --gold-300:#dcb87f;
+    --cream-100:#faf5ec;
+    --cream-200:#f3ecdf;
+    --ink:#26302c;
+    --ink-soft:#5b655f;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins', sans-serif;
+    color:var(--ink);
+    background:var(--cream-100);
+    line-height:1.6;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    color:var(--green-900);
+  }
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  .container{
+    width:100%;
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  .eyebrow{
+    color:var(--gold-600);
+    letter-spacing:.18em;
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 30px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    border-radius:2px;
+    transition:all .25s ease;
+    cursor:pointer;
+    border:1px solid transparent;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--green-900);
+    color:var(--cream-100);
+  }
+  .btn-primary:hover{background:var(--green-950); transform:translateY(-1px);}
+  .btn-outline{
+    background:transparent;
+    border-color:var(--gold-500);
+    color:var(--white);
+  }
+  .btn-outline:hover{background:rgba(255,255,255,.08);}
+  .btn-outline.dark{color:var(--green-900); border-color:var(--green-900);}
+  .btn-outline.dark:hover{background:var(--green-900); color:var(--cream-100);}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:var(--cream-100);
+    border-bottom:1px solid rgba(0,0,0,.06);
+  }
+  .nav-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 32px;
+    max-width:1240px;
+    margin:0 auto;
+  }
+  .logo{
+    display:flex; flex-direction:column; align-items:flex-start;
+    border:1px solid var(--gold-500);
+    padding:8px 16px;
+    line-height:1.1;
+  }
+  .logo .word{
+    font-family:'Cormorant Garamond', serif;
+    font-size:24px;
+    letter-spacing:.28em;
+    color:var(--green-900);
+    font-weight:600;
+  }
+  .logo .sub{
+    font-size:9px;
+    letter-spacing:.25em;
+    color:var(--gold-600);
+    margin-top:2px;
+  }
+  nav.main-nav{
+    display:flex;
+    gap:34px;
+  }
+  nav.main-nav a{
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink);
+    padding-bottom:6px;
+    border-bottom:2px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  nav.main-nav a:hover, nav.main-nav a.active{
+    color:var(--green-900);
+    border-bottom-color:var(--gold-500);
+  }
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
+  .burger span{width:26px; height:2px; background:var(--green-900); display:block;}
+
+  /* Hero */
+  .hero{
+    padding:70px 0 0;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:56px;
+    line-height:1.12;
+    margin:16px 0 22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold-600);
+  }
+  .hero p{
+    color:var(--ink-soft);
+    font-size:16px;
+    max-width:460px;
+    margin-bottom:34px;
+  }
+  .hero-visual{
+    position:relative;
+    border-radius:6px;
+    overflow:hidden;
+    min-height:460px;
+    background:
+      radial-gradient(circle at 78% 20%, rgba(201,151,90,.28), transparent 45%),
+      linear-gradient(135deg, #e9e2d2 0%, #f3ecdf 45%, #e3ddcd 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-visual .leaf{
+    position:absolute;
+    top:-30px; right:10%;
+    width:180px; opacity:.9;
+  }
+  .hero-card{
+    position:relative;
+    z-index:2;
+    background:var(--white);
+    border-radius:6px;
+    box-shadow:0 30px 60px -20px rgba(23,58,48,.35);
+    padding:34px 30px;
+    width:270px;
+    text-align:center;
+    transform:rotate(-1deg);
+  }
+  .hero-card .icon-row{
+    display:flex; justify-content:center; gap:14px; margin-bottom:18px;
+  }
+  .hero-card .icon-row span{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--green-900);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-card .icon-row svg{width:18px; height:18px; stroke:var(--gold-300);}
+  .hero-card p.tag{
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    font-style:italic;
+    color:var(--green-900);
+    line-height:1.3;
+  }
+  .hero-card .divider{
+    width:40px; height:2px; background:var(--gold-500); margin:16px auto;
+  }
+  .hero-mug{
+    position:absolute;
+    bottom:36px; left:26px;
+    background:var(--green-900);
+    color:var(--cream-100);
+    width:88px; height:88px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    font-size:9px;
+    letter-spacing:.08em;
+    font-weight:600;
+    box-shadow:0 18px 30px -10px rgba(0,0,0,.35);
+    padding:8px;
+  }
+
+  /* Features strip */
+  .features{
+    background:var(--green-900);
+    margin-top:64px;
+    padding:56px 0;
+  }
+  .features-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:36px;
+  }
+  .feature-item{text-align:center; color:var(--cream-100);}
+  .feature-item .ic{
+    width:60px; height:60px;
+    border:1px solid var(--gold-500);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 18px;
+  }
+  .feature-item .ic svg{width:26px; height:26px; stroke:var(--gold-300); fill:none;}
+  .feature-item h3{
+    font-family:'Poppins', sans-serif;
+    color:var(--cream-100);
+    font-size:14px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .feature-item p{
+    font-size:13.5px;
+    color:#cdd9d2;
+    max-width:230px;
+    margin:0 auto;
+  }
+
+  /* Services */
+  .services{padding:90px 0 40px; text-align:center;}
+  .services h2{font-size:40px; margin:10px 0 6px;}
+  .services .eyebrow{display:block;}
+  .underline{
+    width:54px; height:2px; background:var(--gold-500);
+    margin:18px auto 50px;
+  }
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:26px;
+    text-align:left;
+  }
+  .service-card{
+    border:1px solid #e3dbc9;
+    background:var(--white);
+    padding:38px 28px;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    text-align:center;
+  }
+  .service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px -20px rgba(23,58,48,.25);
+    border-color:var(--gold-500);
+  }
+  .service-card .ic{
+    width:56px; height:56px;
+    margin:0 auto 20px;
+    border:1px solid var(--gold-500);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .service-card .ic svg{width:24px; height:24px; stroke:var(--green-900); fill:none;}
+  .service-card h3{
+    font-family:'Poppins', sans-serif;
+    font-size:15px;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--green-900);
+    margin-bottom:12px;
+  }
+  .service-card p{
+    color:var(--ink-soft);
+    font-size:14px;
+  }
+
+  /* CTA banner */
+  .cta-banner{
+    margin-top:90px;
+    background:linear-gradient(120deg, rgba(23,58,48,.94), rgba(23,58,48,.86)), linear-gradient(135deg, #4b5c4f, #2e433a);
+    padding:56px 0;
+  }
+  .cta-grid{
+    display:grid;
+    grid-template-columns:1fr auto auto;
+    align-items:center;
+    gap:40px;
+  }
+  .cta-grid h2{
+    color:var(--cream-100);
+    font-size:34px;
+    font-style:italic;
+    max-width:420px;
+  }
+  .cta-grid .cta-text{
+    color:#dfe6e0;
+    font-size:14.5px;
+    max-width:280px;
+    padding-left:24px;
+    border-left:1px solid var(--gold-500);
+  }
+
+  /* Footer */
+  footer{
+    background:var(--cream-100);
+    padding:48px 0 26px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:34px;
+    border-bottom:1px solid #e3dbc9;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .socials{display:flex; gap:12px;}
+  .socials a{
+    width:38px; height:38px;
+    border:1px solid var(--green-900);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .socials a svg{width:16px; height:16px; stroke:var(--green-900); fill:none;}
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:22px;
+    flex-wrap:wrap;
+    gap:14px;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .footer-links{display:flex; gap:26px;}
+  .footer-links a{letter-spacing:.03em; text-transform:uppercase; font-size:12px; font-weight:500; color:var(--green-900);}
+
+  @media (max-width: 980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .features-grid{grid-template-columns:repeat(2,1fr); row-gap:40px;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .cta-grid{grid-template-columns:1fr; text-align:center;}
+    .cta-grid .cta-text{border-left:none; border-top:1px solid var(--gold-500); padding-left:0; padding-top:16px; margin:0 auto;}
+    nav.main-nav{display:none;}
+    .burger{display:flex;}
+    .nav-cta{display:none;}
+  }
+  @media (max-width: 620px){
+    .hero h1{font-size:38px;}
+    .services-grid{grid-template-columns:1fr;}
+    .footer-top, .footer-bottom{flex-direction:column; text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#inicio" class="logo">
+      <span class="word">ELEVATE</span>
+      <span class="sub">HR CONSULTING</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#inicio" class="active">Inicio</a>
+      <a href="#sobre-mi">Sobre Mí</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="#contacto" class="btn btn-primary nav-cta">Agenda una Consulta</a>
+    <button class="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Consultoría de Recursos Humanos</span>
+      <h1>Elevamos tu gente.<br>Potenciamos <em>tu empresa.</em></h1>
+      <p>Soluciones de RRHH estratégicas y personalizadas para pymes que quieren crecer con propósito.</p>
+      <a href="#servicios" class="btn btn-primary">Conoce Nuestros Servicios →</a>
+    </div>
+    <div class="hero-visual">
+      <svg class="leaf" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 190 C100 120 60 90 20 70 C60 80 100 60 100 10 C100 60 140 80 180 70 C140 90 100 120 100 190Z" fill="#c9975a" opacity="0.35"/>
+      </svg>
+      <div class="hero-card">
+        <div class="icon-row">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2 12 6" stroke-linecap="round"/><path d="M8 22v-6a4 4 0 0 1 8 0v6"/><circle cx="12" cy="10" r="4"/></svg></span>
+        </div>
+        <p class="tag">people</p>
+        <p class="tag">process</p>
+        <p class="tag">purpose</p>
+        <div class="divider"></div>
+      </div>
+      <div class="hero-mug">PEOPLE<br>PROCESS<br>PURPOSE</div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container features-grid">
+    <div class="feature-item">
+      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15.5 14.5c2.5.3 4.5 2.5 4.5 5.5"/></svg></div>
+      <h3>Enfoque Humano</h3>
+      <p>Ponemos a las personas en el centro de cada decisión.</p>
+    </div>
+    <div class="feature-item">
+      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 3v6l3 2"/><circle cx="12" cy="13" r="8"/></svg></div>
+      <h3>Estrategia que Funciona</h3>
+      <p>Diseñamos procesos alineados a tus objetivos de negocio.</p>
+    </div>
+    <div class="feature-item">
+      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M4 19h16"/><path d="M7 19v-6M12 19V9M17 19v-3"/><path d="M7 13l5-4 5 2 4-5"/></svg></div>
+      <h3>Resultados Reales</h3>
+      <p>Transformamos tu gestión de talento en crecimiento sostenible.</p>
+    </div>
+    <div class="feature-item">
+      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9.5 12l1.8 1.8L14.5 10"/></svg></div>
+      <h3>Cumplimiento y Seguridad</h3>
+      <p>Te ayudamos a cumplir con la ley y a reducir riesgos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="container">
+    <span class="eyebrow">Servicios</span>
+    <h2>Soluciones que se adaptan a ti</h2>
+    <div class="underline"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="10" cy="10" r="6"/><path d="M20 20l-4.35-4.35"/></svg></div>
+        <h3>Reclutamiento y Selección</h3>
+        <p>Atraemos y seleccionamos el mejor talento para tu empresa.</p>
+      </div>
+      <div class="service-card">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M6 3h9l5 5v13H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></div>
+        <h3>Políticas y Manuales</h3>
+        <p>Creamos documentos claros, actualizados y alineados a la ley.</p>
+      </div>
+      <div class="service-card">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/><circle cx="9" cy="9" r="1.5"/><circle cx="15" cy="10.5" r="1.5"/></svg></div>
+        <h3>Desarrollo y Capacitación</h3>
+        <p>Fortalecemos las habilidades de tu equipo para impulsar resultados.</p>
+      </div>
+      <div class="service-card">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M8 12l3 3 6-6"/><path d="M2 12h4l2-3 3 5 2-4 2 2h5"/></svg></div>
+        <h3>Relaciones Laborales</h3>
+        <p>Manejamos situaciones laborales de forma justa y estratégica.</p>
+      </div>
+      <div class="service-card">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="6" y="3" width="12" height="18" rx="1.5"/><path d="M9 3v2h6V3"/><path d="M9 10l2 2 4-4M9 16h6"/></svg></div>
+        <h3>Cumplimiento Laboral</h3>
+        <p>Te mantenemos al día con las leyes y regulaciones aplicables.</p>
+      </div>
+      <div class="service-card">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M4 19h16"/><path d="M7 19v-5M12 19V7M17 19v-9"/><path d="M6 10l5-5 4 3 5-6"/></svg></div>
+        <h3>Consultoría Estratégica</h3>
+        <p>Te acompañamos en la toma de decisiones para hacer crecer tu negocio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner" id="contacto">
+  <div class="container cta-grid">
+    <h2>"Tu éxito empieza con un equipo fortalecido."</h2>
+    <p class="cta-text">Agenda una consulta inicial y descubre cómo podemos ayudarte a llevar tu empresa al siguiente nivel.</p>
+    <a href="#" class="btn btn-outline">Agenda tu Consulta →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a href="#inicio" class="logo">
+        <span class="word">ELEVATE</span>
+        <span class="sub">HR CONSULTING</span>
+      </a>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4.5c0-1.4 1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V17"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="Correo"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Elevate HR Consulting. Todos los derechos reservados.</span>
+      <div class="footer-links">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos y Condiciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.burger').addEventListener('click', function(){
+    var nav = document.querySelector('.main-nav');
+    var cta = document.querySelector('.nav-cta');
+    var open = nav.style.display === 'flex';
+    nav.style.display = open ? 'none' : 'flex';
+    nav.style.flexDirection = 'column';
+    nav.style.position = 'absolute';
+    nav.style.top = '78px';
+    nav.style.left = '0';
+    nav.style.right = '0';
+    nav.style.background = '#faf5ec';
+    nav.style.padding = '20px 32px';
+    nav.style.gap = '18px';
+    nav.style.borderBottom = '1px solid #e3dbc9';
+    cta.style.display = open ? 'none' : 'inline-flex';
+  });
+</script>
+
+</body>
+</html>

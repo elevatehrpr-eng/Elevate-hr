@@ -217,9 +217,25 @@
   }
   .about-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:36px;
+    grid-template-columns:0.8fr 1.2fr;
+    gap:32px;
     align-items:stretch;
+  }
+  .about-photo-wrap{
+    border-radius:6px;
+    overflow:hidden;
+    min-height:100%;
+  }
+  .about-photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .about-stack{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
   }
   .about-card{
     background:var(--green-900);
@@ -475,6 +491,10 @@
       <p class="about-intro">En Elevate HR ayudamos a las empresas a alcanzar su máximo potencial a través de una gestión estratégica del talento y procesos eficientes.</p>
     </div>
     <div class="about-grid">
+      <div class="about-photo-wrap">
+        <img src="assets/about-hands-typing.png" alt="Profesional trabajando en su laptop — Elevate HR" class="about-photo">
+      </div>
+      <div class="about-stack">
       <div class="about-card">
         <div class="about-card-icon">
           <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15.5 14.5c2.5.3 4.5 2.5 4.5 5.5"/></svg>
@@ -506,6 +526,7 @@
             Permitir que la gerencia se enfoque en el crecimiento del negocio.
           </li>
         </ul>
+      </div>
       </div>
     </div>
   </div>

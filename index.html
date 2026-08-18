@@ -149,95 +149,19 @@
     max-width:460px;
     margin-bottom:34px;
   }
-  .hero-visual{width:100%;}
-  .hero-gallery{
-    display:flex;
-    align-items:flex-end;
-    gap:18px;
-  }
-  .hero-photo-small{
-    width:36%;
-    height:280px;
-    object-fit:cover;
-    object-position:center 22%;
-    border-radius:6px;
-    box-shadow:0 24px 44px -22px rgba(23,58,48,.4);
-    flex:none;
-  }
-  .hero-video{
+  .hero-visual{
     position:relative;
-    flex:1;
-    height:340px;
     border-radius:6px;
     overflow:hidden;
-    box-shadow:0 30px 55px -22px rgba(23,58,48,.45);
+    min-height:460px;
+    box-shadow:0 30px 60px -25px rgba(23,58,48,.35);
   }
-  .hero-video-thumb{
-    width:100%; height:100%;
+  .hero-photo{
+    width:100%;
+    height:100%;
+    min-height:460px;
     object-fit:cover;
-  }
-  .video-scrim{
-    position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(18,38,31,0) 45%, rgba(18,38,31,.72) 100%);
-  }
-  .video-controls{
-    position:absolute;
-    top:50%; left:50%;
-    transform:translate(-50%,-50%);
-    display:flex;
-    align-items:center;
-    gap:22px;
-  }
-  .skip-btn, .play-btn{
-    background:rgba(18,38,31,.35);
-    border:1.5px solid rgba(255,255,255,.8);
-    color:var(--white);
-    border-radius:50%;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:background .2s ease, transform .2s ease;
-  }
-  .skip-btn{
-    width:44px; height:44px;
-    flex-direction:column;
-    gap:1px;
-  }
-  .skip-btn svg{width:17px; height:17px;}
-  .skip-btn span{font-size:8px; font-weight:600; letter-spacing:.02em;}
-  .play-btn{
-    width:60px; height:60px;
-    background:var(--white);
-    border-color:var(--white);
-    color:var(--green-900);
-  }
-  .play-btn svg{width:22px; height:22px; margin-left:2px;}
-  .skip-btn:hover, .play-btn:hover{transform:scale(1.06);}
-  .video-progress{
-    position:absolute;
-    left:20px; right:20px; bottom:16px;
-  }
-  .video-progress-track{
-    width:100%; height:3px;
-    background:rgba(255,255,255,.4);
-    border-radius:2px;
-    position:relative;
-  }
-  .video-progress-fill{
-    width:38%; height:100%;
-    background:var(--gold-300);
-    border-radius:2px;
-    position:relative;
-  }
-  .video-progress-fill::after{
-    content:"";
-    position:absolute;
-    right:-5px; top:50%;
-    width:11px; height:11px;
-    background:var(--white);
-    border-radius:50%;
-    transform:translateY(-50%);
+    object-position:center 22%;
   }
 
   /* Features strip */
@@ -461,8 +385,6 @@
 
   @media (max-width: 980px){
     .hero-grid{grid-template-columns:1fr;}
-    .hero-photo-small{display:none;}
-    .hero-video{height:300px;}
     .features-grid{grid-template-columns:repeat(2,1fr); row-gap:40px;}
     .about-grid{grid-template-columns:1fr;}
     .services-grid{grid-template-columns:repeat(2,1fr);}
@@ -509,29 +431,7 @@
       <a href="#servicios" class="btn btn-primary">Conoce Nuestros Servicios →</a>
     </div>
     <div class="hero-visual">
-      <div class="hero-gallery">
-        <img src="assets/plant-crop.png" alt="Escritorio con laptop y plantas — Elevate HR" class="hero-photo-small">
-        <div class="hero-video">
-          <img src="assets/video-photo.png" alt="Video introductorio de Elevate HR" class="hero-video-thumb">
-          <div class="video-scrim"></div>
-          <div class="video-controls">
-            <button class="skip-btn" aria-label="Retroceder 10 segundos">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 1 1 2.6 5.9" stroke-linecap="round"/><path d="M4 7v5h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>10</span>
-            </button>
-            <button class="play-btn" aria-label="Reproducir video">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 6.5v11l9-5.5-9-5.5z"/></svg>
-            </button>
-            <button class="skip-btn" aria-label="Adelantar 10 segundos">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12a8 8 0 1 0-2.6 5.9" stroke-linecap="round"/><path d="M20 7v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>10</span>
-            </button>
-          </div>
-          <div class="video-progress">
-            <div class="video-progress-track"><div class="video-progress-fill"></div></div>
-          </div>
-        </div>
-      </div>
+      <img src="assets/plant-crop.png" alt="Escritorio con laptop y plantas — Elevate HR" class="hero-photo">
     </div>
   </div>
 </section>

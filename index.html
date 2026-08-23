@@ -295,6 +295,44 @@
   }
   .benefit-list .check svg{width:14px; height:14px; stroke:var(--green-900); fill:none;}
 
+  /* Pain points */
+  .pain-points{
+    background:var(--green-900);
+    padding:90px 0;
+    margin-top:90px;
+  }
+  .pain-head{text-align:center;}
+  .pain-head h2{
+    color:var(--cream-100);
+    font-size:34px;
+    max-width:680px;
+    margin:10px auto 6px;
+  }
+  .pain-points .underline{background:var(--gold-500); margin:18px auto 54px;}
+  .pain-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px 48px;
+    max-width:920px;
+    margin:0 auto;
+  }
+  .pain-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    font-size:16px;
+    color:var(--cream-100);
+  }
+  .pain-item .check{
+    flex:none;
+    width:28px; height:28px;
+    border-radius:50%;
+    background:rgba(220,184,127,.15);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .pain-item .check svg{width:15px; height:15px; stroke:var(--gold-300); fill:none;}
+  .pain-cta{text-align:center; margin-top:50px;}
+
   /* Services */
   .services{padding:90px 0 40px; text-align:center;}
   .services h2{font-size:40px; margin:10px 0 6px;}
@@ -532,6 +570,45 @@
         </ul>
       </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="pain-points">
+  <div class="container">
+    <div class="pain-head">
+      <span class="eyebrow">¿Te identificas?</span>
+      <h2>¿Cuándo necesita una empresa apoyo en Recursos Humanos?</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-item">
+        <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        La empresa está creciendo rápidamente.
+      </div>
+      <div class="pain-item">
+        <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        No existe un departamento de Recursos Humanos.
+      </div>
+      <div class="pain-item">
+        <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Se necesitan políticas o manuales actualizados.
+      </div>
+      <div class="pain-item">
+        <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Existen problemas recurrentes con empleados.
+      </div>
+      <div class="pain-item">
+        <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Se requiere apoyo en cumplimiento laboral.
+      </div>
+      <div class="pain-item">
+        <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Se busca mejorar procesos de reclutamiento y desarrollo.
+      </div>
+    </div>
+    <div class="pain-cta">
+      <a href="#contacto" class="btn btn-outline">Agenda tu Consulta →</a>
     </div>
   </div>
 </section>

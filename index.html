@@ -461,6 +461,47 @@
     .services-grid{grid-template-columns:1fr;}
     .footer-top, .footer-bottom{flex-direction:column; text-align:center;}
   }
+
+  /* Scroll / entrance reveal */
+  .reveal{
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .hero-reveal.in-view{transition-duration:.9s;}
+  .hero-reveal-delay{transition-delay:.15s;}
+
+  .features-grid .reveal:nth-child(2){transition-delay:.08s;}
+  .features-grid .reveal:nth-child(3){transition-delay:.16s;}
+  .features-grid .reveal:nth-child(4){transition-delay:.24s;}
+
+  .about-grid .about-photo-wrap.reveal{transition-delay:0s;}
+  .about-stack .about-card.reveal{transition-delay:.1s;}
+  .about-stack .about-benefits.reveal{transition-delay:.2s;}
+
+  .pain-grid .reveal:nth-child(2){transition-delay:.06s;}
+  .pain-grid .reveal:nth-child(3){transition-delay:.12s;}
+  .pain-grid .reveal:nth-child(4){transition-delay:.18s;}
+  .pain-grid .reveal:nth-child(5){transition-delay:.24s;}
+  .pain-grid .reveal:nth-child(6){transition-delay:.3s;}
+
+  .services-grid .reveal:nth-child(2){transition-delay:.06s;}
+  .services-grid .reveal:nth-child(3){transition-delay:.12s;}
+  .services-grid .reveal:nth-child(4){transition-delay:.18s;}
+  .services-grid .reveal:nth-child(5){transition-delay:.24s;}
+  .services-grid .reveal:nth-child(6){transition-delay:.3s;}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{
+      opacity:1;
+      transform:none;
+      transition:none;
+    }
+  }
 </style>
 </head>
 <body>
@@ -485,14 +526,14 @@
 
 <section class="hero" id="inicio">
   <div class="container hero-grid">
-    <div class="hero-copy">
+    <div class="hero-copy reveal hero-reveal">
       <div class="hero-rule"></div>
       <span class="eyebrow">Consultoría de Recursos Humanos</span>
       <h1>Elevamos tu gente.<br>Potenciamos <em>tu empresa.</em></h1>
       <p>Soluciones de RRHH estratégicas y personalizadas para pymes que buscan un crecimiento sólido y sostenible.</p>
       <a href="#servicios" class="btn btn-primary">Conoce Nuestros Servicios →</a>
     </div>
-    <div class="hero-visual">
+    <div class="hero-visual reveal hero-reveal hero-reveal-delay">
       <img src="assets/hero-branded-desk.png" alt="Escritorio con laptop, libreta y termo de la marca Elevate HR" class="hero-photo">
     </div>
   </div>
@@ -500,22 +541,22 @@
 
 <section class="features">
   <div class="container features-grid">
-    <div class="feature-item">
+    <div class="feature-item reveal">
       <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15.5 14.5c2.5.3 4.5 2.5 4.5 5.5"/></svg></div>
       <h3>Gestión del Talento</h3>
       <p>Creamos estrategias para atraer, desarrollar y fortalecer el talento que impulsa el crecimiento de tu empresa.</p>
     </div>
-    <div class="feature-item">
+    <div class="feature-item reveal">
       <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><circle cx="10" cy="14" r="7"/><circle cx="10" cy="14" r="4"/><circle cx="10" cy="14" r="1" fill="currentColor" stroke="none"/><path d="M19.5 4.5L14.3 9.7" stroke-linecap="round"/><path d="M12.2 11.9L15.3 10.9L14.3 14L12.2 11.9Z" fill="currentColor" stroke="none"/></svg></div>
       <h3>Estrategia de Recursos Humanos</h3>
       <p>Diseñamos soluciones de Recursos Humanos alineadas con las necesidades, objetivos y etapa de crecimiento de tu negocio.</p>
     </div>
-    <div class="feature-item">
+    <div class="feature-item reveal">
       <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><circle cx="4" cy="12" r="2.4"/><rect x="9.8" y="9.6" width="4.8" height="4.8" rx="1"/><circle cx="20" cy="12" r="2.4"/><path d="M6.4 12h3.4M14.6 12h3.4" stroke-linecap="round"/></svg></div>
       <h3>Procesos que Impulsan</h3>
       <p>Optimizamos procesos y prácticas de Recursos Humanos para lograr una operación más organizada, eficiente y consistente.</p>
     </div>
-    <div class="feature-item">
+    <div class="feature-item reveal">
       <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M12 3v16" stroke-linecap="round"/><path d="M7 21h10" stroke-linecap="round"/><path d="M4 6h16" stroke-linecap="round"/><circle cx="12" cy="4.2" r="1.1" fill="currentColor" stroke="none"/><path d="M4 6l-2.4 5a2.4 2.4 0 0 0 4.8 0L4 6z" stroke-linejoin="round"/><path d="M20 6l-2.4 5a2.4 2.4 0 0 0 4.8 0L20 6z" stroke-linejoin="round"/></svg></div>
       <h3>Cumplimiento y Prevención</h3>
       <p>Fortalecemos tus prácticas laborales para promover el cumplimiento, reducir riesgos y proteger a tu empresa y a tu equipo.</p>
@@ -525,18 +566,18 @@
 
 <section class="about" id="sobre-mi">
   <div class="container">
-    <div class="about-head">
+    <div class="about-head reveal">
       <span class="eyebrow">Sobre Mí</span>
       <h2>Quiénes Somos</h2>
       <div class="underline"></div>
       <p class="about-intro">En Elevate HR ayudamos a las empresas a alcanzar su máximo potencial a través de una gestión estratégica del talento y procesos eficientes.</p>
     </div>
     <div class="about-grid">
-      <div class="about-photo-wrap">
+      <div class="about-photo-wrap reveal">
         <img src="assets/about-hands-typing.png" alt="Profesional trabajando en su laptop — Elevate HR" class="about-photo">
       </div>
       <div class="about-stack">
-      <div class="about-card">
+      <div class="about-card reveal">
         <div class="about-card-icon">
           <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15.5 14.5c2.5.3 4.5 2.5 4.5 5.5"/></svg>
         </div>
@@ -544,7 +585,7 @@
         <p>A través de soluciones personalizadas, Elevate HR integra talento, procesos y cumplimiento laboral para atender las necesidades reales de cada empresa y apoyar su crecimiento.</p>
         <p>Más que ofrecer servicios de Recursos Humanos, el propósito es convertirse en un aliado estratégico para cada negocio, aportando estructura, orientación y soluciones que evolucionen junto a la organización.</p>
       </div>
-      <div class="about-benefits">
+      <div class="about-benefits reveal">
         <h3>Beneficios para tu Empresa</h3>
         <ul class="benefit-list">
           <li>
@@ -576,38 +617,38 @@
 
 <section class="pain-points">
   <div class="container">
-    <div class="pain-head">
+    <div class="pain-head reveal">
       <span class="eyebrow">¿Te identificas?</span>
       <h2>¿Cuándo necesita una empresa apoyo en Recursos Humanos?</h2>
       <div class="underline"></div>
     </div>
     <div class="pain-grid">
-      <div class="pain-item">
+      <div class="pain-item reveal">
         <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         La empresa está creciendo rápidamente.
       </div>
-      <div class="pain-item">
+      <div class="pain-item reveal">
         <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         No existe un departamento de Recursos Humanos.
       </div>
-      <div class="pain-item">
+      <div class="pain-item reveal">
         <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         Se necesitan políticas o manuales actualizados.
       </div>
-      <div class="pain-item">
+      <div class="pain-item reveal">
         <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         Existen problemas recurrentes con empleados.
       </div>
-      <div class="pain-item">
+      <div class="pain-item reveal">
         <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         Se requiere apoyo en cumplimiento laboral.
       </div>
-      <div class="pain-item">
+      <div class="pain-item reveal">
         <span class="check"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         Se busca mejorar procesos de reclutamiento y desarrollo.
       </div>
     </div>
-    <div class="pain-cta">
+    <div class="pain-cta reveal">
       <a href="#contacto" class="btn btn-outline">Agenda tu Consulta →</a>
     </div>
   </div>
@@ -619,32 +660,32 @@
     <h2>Soluciones que se adaptan a ti</h2>
     <div class="underline"></div>
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="10" cy="10" r="6"/><path d="M20 20l-4.35-4.35"/></svg></div>
         <h3>Descripciones de Puesto</h3>
         <p>Creamos descripciones de puesto claras y alineamos tus convocatorias de empleo con las necesidades de tu empresa.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M6 3h9l5 5v13H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></div>
         <h3>Políticas y Manuales</h3>
         <p>Creamos y actualizamos las políticas internas de tu empresa, redactadas de forma clara y alineadas a la ley.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/><circle cx="9" cy="9" r="1.5"/><circle cx="15" cy="10.5" r="1.5"/></svg></div>
         <h3>Desarrollo y Capacitación</h3>
         <p>Orientamos a tus supervisores en prácticas de supervisión efectiva para fortalecer a tu equipo.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M8 12l3 3 6-6"/><path d="M2 12h4l2-3 3 5 2-4 2 2h5"/></svg></div>
         <h3>Relaciones Laborales</h3>
         <p>Te ayudamos a manejar cualquier situación laboral de forma justa, clara y conforme a la ley.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="6" y="3" width="12" height="18" rx="1.5"/><path d="M9 3v2h6V3"/><path d="M9 10l2 2 4-4M9 16h6"/></svg></div>
         <h3>Cumplimiento Laboral</h3>
         <p>Te orientamos en los procesos del Departamento del Trabajo y te preparamos para cualquier inspección.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M4 19h16"/><path d="M7 19v-5M12 19V7M17 19v-9"/><path d="M6 10l5-5 4 3 5-6"/></svg></div>
         <h3>Consultoría Estratégica</h3>
         <p>Evaluamos cualquier situación que tu empresa necesite resolver y creamos el proceso más efectivo para lograrlo.</p>
@@ -654,7 +695,7 @@
 </section>
 
 <section class="cta-banner" id="contacto">
-  <div class="container cta-grid">
+  <div class="container cta-grid reveal">
     <h2>"Tu éxito empieza con un equipo fortalecido."</h2>
     <p class="cta-text">Agenda una consulta inicial y descubre cómo podemos ayudarte a llevar tu empresa al siguiente nivel.</p>
     <a href="#" class="btn btn-outline">Agenda tu Consulta →</a>
@@ -700,6 +741,31 @@
     nav.style.borderBottom = '1px solid #e3dbc9';
     cta.style.display = open ? 'none' : 'inline-flex';
   });
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('.hero-reveal').forEach(function(el){
+    requestAnimationFrame(function(){
+      setTimeout(function(){ el.classList.add('in-view'); }, 60);
+    });
+  });
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in-view'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal:not(.hero-reveal)').forEach(function(el){
+      revealObserver.observe(el);
+    });
+  }
 </script>
 
 </body>
